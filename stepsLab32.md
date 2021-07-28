@@ -2,6 +2,11 @@
 Let’s move our site closer to production grade by adding Permissions and Postgresql Database.
 1. create demo link it in today directory 
 2. run docker   and run `docker-compose up` and check the browser 
+3. in case you face There isnt anything to compare when you make PR solve it by :: 
+   1. git checkout [secondaryBRANCH]   
+   2. git branch main [BRANCH] -f   
+   3. git checkout main   
+   4. git push origin main -f
 ## postgres part
 
 note: docker-compose -up d => run the server and make the terminal not busy 

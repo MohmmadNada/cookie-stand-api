@@ -10,10 +10,11 @@ services:
       - POSTGRES_PASSWORD=postgres
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    # command: python manage.py runserver 0.0.0.0:8002
+    command: gunicorn superteam.wsgi:application --bind 0.0.0.0:8005 --workers 4
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - "8005:8005"
     depends_on: 
       - db

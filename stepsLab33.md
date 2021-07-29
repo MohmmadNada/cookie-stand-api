@@ -1,6 +1,6 @@
 ## link with new repo 
 1. create new repo 
-2. run git remote set-url origin <link>
+2. run `git remote set-url origin <link>`
 3. add commit and push 
 ## setup
 1. run `poetry add djangorestframework_simplejwt`
@@ -41,8 +41,3 @@ Warning You will run into styling issues when you switch over to Gunicorn.
 6. run `docker-compose up --build`
 7. run `docker-compose run web python manage.py migrate`
 8. run http://localhost:8000/
-
-
-
-
-=> poetry add whitenoise => export => --build 

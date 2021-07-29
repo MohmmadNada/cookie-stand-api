@@ -4,7 +4,7 @@ Let’s move our site closer to production grade by adding Permissions and Postg
 2. run docker   and run `docker-compose up` and check the browser 
 3. in case you face There isnt anything to compare when you make PR solve it by :: 
    1. git checkout [secondaryBRANCH]   
-   2. git branch main [BRANCH] -f   
+   2. git branch main [secondaryBRANCH] -f   
    3. git checkout main   
    4. git push origin main -f
 ## postgres part

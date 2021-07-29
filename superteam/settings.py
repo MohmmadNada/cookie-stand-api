@@ -14,21 +14,26 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+# Environment Variables
 
+import environ
+env = environ.Env(
+    DEBUG = (bool, False)
+)
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-rw2=rl@d*dl_)2caoqbd2y4a=^m0un4gp%ob5hrwidz)7i+r$&'
+SECRET_KEY = env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG')
 
 # ALLOWED_HOSTS = ['0.0.0.0',]
-ALLOWED_HOSTS = ['localhost','127.0.0.1','0.0.0.0',]
-# ALLOWED_HOSTS = ['*','0.0.0.0']
-
+# ALLOWED_HOSTS = ['localhost','127.0.0.1','0.0.0.0',]
+ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS'))
 
 # Application definition
 
@@ -85,15 +90,22 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # } from lab 31 
+    # 'default':{
+    #     'ENGINE':'django.db.backends.postgresql',
+    #     'NAME':'postgres',
+    #     'USER':'postgres',
+    #     'PASSWORD':'postgres',
+    #     'HOST':'db',
+    #     'PORT':5432,
+    # } # HOST MUST BE (the same in docker compse file)
     'default':{
-        'ENGINE':'django.db.backends.postgresql',
-        'NAME':'postgres',
-        'USER':'postgres',
-        'PASSWORD':'postgres',
-        'HOST':'db',
-        'PORT':5432,
-    } # HOST MUST BE (the same in docker compse file)
-
+        'ENGINE':env.str('DATABASE_ENGINE'),
+        'NAME':env.str('DATABASE_NAME'),
+        'USER':env.str('DATABASE_USER'),
+        'PASSWORD':env.str('DATABASE_PASSWORD'),
+        'HOST':env.str('DATABASE_HOST'),
+        'PORT':env.str('DATABASE_PORT'),
+    }
 }
 
 

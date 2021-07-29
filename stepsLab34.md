@@ -64,4 +64,15 @@ after what we did in previous lab (gunicorn ) let`s continue on it
 5. copy and past from [here](https://github.com/LTUC/blogpostsapid4/blob/master/heroku.yml) change the project name 
 6. run `heroku stack:set container`
 7. docker-compose run web python manage.py gunicorn projectname.wsgi 
-8. run poetry shell => gunicorn projectname.wsgi =>run server and add data 
+8. run poetry shell => gunicorn superteam.wsgi =>run server and add data=>stopserver and goout env  
+### upload online
+1. git add . 
+2. git commit -m ""
+3. git push origin lab33
+4. Go to heroku site => open the app 
+5. connect with github repo 
+6. open heroku site setting => Config Vars
+   * add every things from .env 
+
+7.  add 'playerapi34.herokuapp.com' to ALLOWED_HOSTS. , online is enght
+8.  try the postman links 
